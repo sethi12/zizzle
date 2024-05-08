@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "31406524389",
+    "project_id": "zizzle-1ad7c",
+    "storage_bucket": "zizzle-1ad7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31406524389:android:224b275fb5e4e8e367110c",
+        "android_client_info": {
+          "package_name": "com.InbredTechno.Zizzle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs1ThntWTWHeazKZUSn1BHcGvWJQq4fFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
