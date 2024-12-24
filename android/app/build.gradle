@@ -1,0 +1,71 @@
+// Apply the necessary plugins
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "com.google.gms.google-services"// The Flutter Gradle Plugin must be applied after the Android and Kotlin plugins
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+// Android configuration
+android {
+    namespace = "com.example.zizzle"
+    compileSdk = flutter.compileSdkVersion // Ensure this value matches your Flutter config
+    ndkVersion = flutter.ndkVersion // NDK version from Flutter settings, if applicable
+
+    // Java compatibility options
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    // Kotlin compatibility options
+    kotlinOptions {
+        jvmTarget = "1.8" // Use 1.8 for compatibility with Flutter and Android libraries
+    }
+
+    // Default configuration for the application
+    defaultConfig {
+        applicationId "com.InbredTechno.Zizzle"
+        minSdk = 26 // Match your minSdk to Flutter’s requirements or project needs
+        targetSdk = flutter.targetSdkVersion // Use Flutter’s targetSdk version
+        versionCode = flutter.versionCode // Use Flutter’s version code
+        versionName = flutter.versionName // Use Flutter’s version name
+        multiDexEnabled = true // Enable MultiDex for large projects
+    }
+
+    // Build types
+    buildTypes {
+        release {
+            // Set up signing config for release builds
+            signingConfig = signingConfigs.debug // Use debug signing config; change for production
+            minifyEnabled false // Disable minification for easier debugging; enable for release
+            shrinkResources false // Disable resource shrinking; adjust as needed
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+// Flutter configuration
+flutter {
+    source = "../.."
+}
+
+// Repositories for dependencies
+repositories {
+    google()
+    mavenCentral()
+}
+
+// Ensure all projects have access to the necessary dependencies
+dependencies {
+     implementation 'com.android.support:multidex:1.0.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20" // Ensure Kotlin standard library compatibility
+}
+
+// Ensure settings for all subprojects
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
